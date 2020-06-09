@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorGrey100"
+    android:layout_height="match_parent"
+    tools:context=".Comments.ActivityComments">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_comments_fab"
+        android:src="@drawable/ic_comment_black_24dp"
+        android:tint="@color/colorWhite2"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary"
+            >
+
+        <ImageView
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:tint="@color/colorWhite2"
+            android:padding="13dp"
+            android:id="@+id/img_comments_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:text="نظرات"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorWhite2"
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:elevation="4dp"
+            android:background="@color/colorGrey300"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            >
+
+            <TextView
+                android:id="@+id/txt_comments_foodTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="ته چین مرغ"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
+                />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_comments_commentsRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

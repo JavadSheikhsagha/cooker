@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:id="@+id/rel_ingRv_parent"
+    android:background="@color/colorGrey100"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="برنج"
+        android:id="@+id/txt_ingRv_title"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:layout_centerVertical="true"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorGrey500"
+        />
+
+    <View
+        android:layout_alignParentLeft="true"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorGrey500"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorGrey500"
+        />
+
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorGrey500"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="200 گرم"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorBlack"
+        android:id="@+id/txt_ingRv_amount"
+        />
+
+</RelativeLayout>

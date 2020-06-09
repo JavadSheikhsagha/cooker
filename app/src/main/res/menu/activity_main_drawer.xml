@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="لیست دسته بندی" />
+
+        <item
+            android:id="@+id/nav_liked"
+            android:icon="@drawable/ic_like_black_24dp"
+            android:title="علاقه مندی ها" />
+
+        <item
+            android:id="@+id/nav_saved"
+            android:icon="@drawable/ic_bookmark_black_24dp"
+            android:title="ذخیره شده ها" />
+
+        <item
+            android:id="@+id/nav_buy_list"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:title="لیست خرید" />
+
+    </group>
+
+    <item android:title="ارتباطات">
+        <menu>
+
+            <item
+                android:id="@+id/nav_score"
+                android:icon="@drawable/ic_plus_one_black_24dp"
+                android:title="نمره بدهید" />
+
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="اشتراک بگذارید" />
+
+            <item
+                android:id="@+id/nav_question"
+                android:icon="@drawable/ic_help_black_24dp"
+                android:title="سوالات متداول" />
+
+        </menu>
+    </item>
+
+</menu>

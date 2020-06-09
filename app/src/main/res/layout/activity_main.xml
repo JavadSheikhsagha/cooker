@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".MainActivity.MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:elevation="8dp"
+        android:id="@+id/card_main_actionBar"
+        android:visibility="invisible"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rel_main_actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            >
+
+            <ImageView
+                android:tint="@color/colorWhite1"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_menu_black_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:id="@+id/img_mainActionBar_Menu"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/img_mainActionBar_Menu"
+                android:text="@string/app_name"
+                android:textColor="@color/colorWhite1"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:textSize="18sp"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_main_nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_marginTop="74dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_card_mainactivity"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rel_main_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_main_slider"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="12dp"
+                    android:elevation="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UnusedAttribute">
+
+                    <ss.com.bannerslider.Slider
+                        android:id="@+id/slider_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:slider_loopSlides="true"
+                        app:slider_indicatorSize="4dp"
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_below="@+id/rel_main_slider"
+                android:id="@+id/rel_main_cats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_category"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:background="@color/colorWhite2"
+                android:id="@+id/rel_main_iranianFood"
+                android:layout_below="@+id/rel_main_cats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:id="@+id/txt_main_iranianFood"
+                    android:textSize="16sp"
+                    android:layout_marginRight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="غذاهای ایرانی"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGrey100"
+                    android:layout_below="@+id/txt_main_iranianFood"
+                    android:layout_marginTop="4dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_iranianFood"
+                    android:layout_below="@+id/txt_main_iranianFood"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_main_veganFood"
+                android:layout_below="@+id/rel_main_iranianFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGreenDark"
+                >
+                <TextView
+
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textColor="@color/colorWhite2"
+                    android:id="@+id/txt_main_veganFood"
+                    android:textSize="16sp"
+                    android:layout_toLeftOf="@+id/img_mainRel_veganFood"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="رژیم گیاهخواری"/>
+
+                <ImageView
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_plants_black_24dp"
+                    android:layout_toLeftOf="@+id/txt_main_veganFood"
+                    android:layout_above="@+id/rv_main_veganFood"
+                    android:layout_marginRight="8dp"
+                    android:tint="@color/colorGreenLight"
+                    />
+                <ImageView
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/img_mainRel_veganFood"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_plants_black_24dp"
+                    android:layout_above="@+id/rv_main_veganFood"
+                    android:layout_marginRight="8dp"
+                    android:layout_alignParentRight="true"
+                    android:tint="@color/colorGreenLight"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="@color/colorGreenDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_veganFood"
+                    android:layout_below="@+id/txt_main_veganFood"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/colorRedDark"
+                android:layout_below="@+id/rel_main_veganFood"
+                android:id="@+id/rel_main_topFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:textColor="@color/colorWhite2"
+                    android:id="@+id/txt_main_topFood"
+                    android:textSize="16sp"
+                    android:layout_marginRight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="برترین دستور پخت ها"/>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_like_black_24dp"
+                    android:layout_toLeftOf="@+id/txt_main_topFood"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="4dp"
+                    android:tint="@color/colorRed"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_topFood"
+                    android:layout_below="@+id/txt_main_topFood"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/colorBlue"
+                android:layout_below="@+id/rel_main_topFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rel_main_topUsers"
+                >
+
+                <TextView
+                    android:textColor="@color/colorWhite2"
+                    android:id="@+id/txt_main_drinks"
+                    android:textSize="16sp"
+                    android:layout_marginRight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نوشیدنی ها"/>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_local_drink_black_24dp"
+                    android:tint="@color/colorWhite2"
+                    android:layout_toLeftOf="@id/txt_main_drinks"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="4dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_topUsers"
+                    android:layout_below="@+id/txt_main_drinks"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/colorPrimaryDark"
+                android:layout_below="@+id/rel_main_topUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rel_main_catsRV"
+                >
+
+                <TextView
+                    android:textColor="@color/colorWhite2"
+                    android:id="@+id/txt_main_catsRV"
+                    android:textSize="17sp"
+                    android:layout_marginRight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="دسر ها"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_main_catsRV"
+                    android:layout_below="@+id/txt_main_catsRV"
+                    />
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+</RelativeLayout>
+

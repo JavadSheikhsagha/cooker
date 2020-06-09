@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey100"
+    tools:context=".DetailActivity.DetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ss.com.bannerslider.Slider
+                android:id="@+id/slider_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
+                app:slider_indicatorSize="4dp"
+                app:slider_loopSlides="true" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom|right">
+
+                <RelativeLayout
+                    android:id="@+id/rel_detail_title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txt_detail_title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24dp"
+                        android:text="ته چین مرغ"
+                        android:textColor="@color/colorWhite2"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:foreground="?attr/selectableItemBackground"
+                        android:id="@+id/img_detail_back"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:padding="14dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_back_black_24dp"
+                        android:tint="@color/colorWhite2" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+        <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_detail_nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_detail_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:elevation="4dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txt_detail_title1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20sp"
+                            tools:text="ته چین مرغ" />
+
+                        <TextView
+                            android:id="@+id/txt_detail_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_detail_title1"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:textColor="@color/colorBlack"
+                            tools:text="جواد شیخ سقا" />
+
+                        <TextView
+                            android:id="@+id/txt_detail_category"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:textColor="@color/colorBlack"
+                            tools:text="ته چین ,برنج ,مرغ" />
+
+                        <ImageView
+                            android:id="@+id/img_detail_like"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_below="@+id/txt_detail_user"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/ic_like_border_black_24dp"
+                            android:tint="@color/colorRed" />
+
+
+
+                        <TextView
+                            android:id="@+id/txt_detail_like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_detail_user"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_toRightOf="@+id/img_detail_like"
+                            android:textColor="@color/colorRed"
+                            android:textSize="14sp"
+                            tools:text="2000" />
+
+                        <ImageView
+                            android:id="@+id/img_detail_people"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_below="@+id/img_detail_like"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_people_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/txt_detail_people"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_detail_like"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="19dp"
+                            android:layout_toRightOf="@+id/img_detail_people"
+                            android:text="برای 3 نفر"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp" />
+
+
+                        <ImageView
+                            android:id="@+id/img_detail_hardness"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_below="@+id/img_detail_people"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_restaurant_black_24dp"
+                            android:tint="@color/colorRed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img_detail_hardness"
+                            android:text=" سخت"
+                            android:layout_below="@+id/img_detail_people"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="@color/colorBlack"
+                            android:id="@+id/txt_detail_difficulty"/>
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_help_black_24dp"
+                            android:layout_below="@+id/img_detail_people"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toRightOf="@+id/txt_detail_difficulty"
+                            android:tint="@color/colorGrey700"
+                            android:id="@+id/img_detail_helpDifficulty"
+                            />
+
+                        <ImageView
+                            android:id="@+id/img_detain_time"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_below="@+id/img_detail_hardness"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/ic_timer_black_24dp"
+                            android:tint="@color/colorGrey900" />
+
+                        <TextView
+                            android:id="@+id/txt_detail_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_detail_hardness"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_toRightOf="@+id/img_detain_time"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="15sp"
+                            tools:text="90 دقیقه " />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_help_black_24dp"
+                            android:layout_below="@+id/img_detail_helpDifficulty"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toRightOf="@+id/txt_detail_time"
+                            android:tint="@color/colorGrey700"
+                            android:id="@+id/img_detail_helpTime"
+                            />
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_bookmark_border_black_24dp"
+                            android:layout_below="@+id/img_detail_helpTime"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:tint="@color/colorBlack"
+                            android:id="@+id/img_detail_bookmark"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img_detail_bookmark"
+                            android:text="ذخیره کردن غذا"
+                            android:layout_below="@+id/img_detain_time"
+                            android:layout_marginLeft="6dp"
+                            android:textColor="@color/colorBlack"
+                            android:id="@+id/txt_detail_bookmark"
+                            />
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_help_black_24dp"
+                            android:layout_below="@+id/txt_detail_time"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toRightOf="@+id/txt_detail_bookmark"
+                            android:tint="@color/colorGrey700"
+                            android:id="@+id/img_detail_helpBookmark"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_below="@+id/card_detail_first"
+                    android:id="@+id/card_detail_second"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="6dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txt_detail_ingredients"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:text="مواد مورد نیاز"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_detail_ing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_detail_ingredients"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="8dp"
+                            android:overScrollMode="never" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_above="@+id/rv_detail_ing"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="6dp"
+                            android:background="@color/colorGrey500" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/txt_detail_ingredients"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_toRightOf="@+id/rv_detail_ing"
+                            android:background="@color/colorGrey500" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/txt_detail_ingredients"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_toLeftOf="@+id/rv_detail_ing"
+                            android:background="@color/colorGrey500" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_below="@id/card_detail_second"
+                    android:id="@+id/card_detail_third"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_detail_howToCook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="8dp"
+                            android:text="نحوه پخت"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
+
+                        <View
+                            android:id="@+id/View_detail_howTo"
+                            android:layout_below="@+id/txt_detail_howToCook"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="6dp"
+                            android:background="@color/colorGrey500" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_detail_howTo"
+                            android:layout_below="@+id/View_detail_howTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="8dp"
+                            android:overScrollMode="never" />
+
+
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_marginBottom="70dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="8dp"
+                    android:layout_below="@+id/card_detail_third"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سایر غذا ها"
+                        android:textColor="@color/colorWhite2"
+                        android:textSize="17sp"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="12dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_detail_others"
+                        />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_detail_fifth"
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <Button
+                    android:id="@+id/btn_detail_comments"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:text="نظرات"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorWhite2"
+                    android:background="@drawable/shape_detail_button"/>
+
+                <Button
+                    android:id="@+id/btn_detail_startCooking"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textSize="16sp"
+                    android:background="@drawable/shape_detail_button"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" ارسال دستور پخت"
+                    android:textColor="@color/colorWhite2"
+                    />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="8dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:id="@+id/card_MyComments_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="علی رحیم زاده"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:id="@+id/txt_MyCommentsRv_userName"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_below="@+id/txt_MyCommentsRv_userName"
+            tools:text="HEY"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:id="@+id/txt_MyCommentsRv_comment"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey500"
+            android:layout_below="@+id/txt_MyCommentsRv_comment"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="6dp"
+            android:clickable="false"
+            android:id="@+id/rel_commentsRv_like"
+            android:layout_marginLeft="8dp"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_MyCommentsRv_comment"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2000"
+                android:id="@+id/txt_MyCommentsRv_like"
+                android:textColor="@color/colorRed"
+                android:layout_toRightOf="@+id/img_MyCommentsRv_like"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"
+                android:layout_marginLeft="8dp"
+                />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_like_border_black_24dp"
+                android:tint="@color/colorRed"
+                android:id="@+id/img_MyCommentsRv_like"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:textColor="@color/colorGrey900"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="12dp"
+            android:id="@+id/txt_MyCommentsRv_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" گزارش نظر"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:textSize="12sp"
+            android:layout_below="@+id/txt_MyCommentsRv_comment"
+            />
+
+        <TextView
+            android:id="@+id/txt_MyCommentsRv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تایید شده و نمایش داده شده است."
+            android:textColor="@color/colorWhite2"
+            android:background="@drawable/shape_mycomments_confirm1"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_MyCommentsRv_report"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

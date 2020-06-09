@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:id="@+id/rel_addComment_actionbar"/>
+
+    <TextView
+        android:layout_below="@+id/rel_addComment_actionbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="محمد رحیمی"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:id="@+id/txt_addComment_userName"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:textSize="14sp"
+        android:layout_below="@+id/txt_addComment_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="نظر خود را ثبت کنید"
+        android:maxLines="3"
+        android:layout_margin="8dp"
+        android:drawableRight="@drawable/ic_comment_black_24dp"
+        android:drawableTint="@color/colorBlack"
+        android:drawablePadding="8dp"
+        android:id="@+id/edt_addComment_comment"
+        />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="ثبت"
+        android:textColor="@color/colorWhite2"
+        android:background="@color/colorGreenLight"
+        android:layout_below="@+id/edt_addComment_comment"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btn_addComment_submit"/>
+
+
+
+</RelativeLayout>

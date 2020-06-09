@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jvd.ir.cooker">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".DrawerMenuItems.AboutActivity"></activity>
+        <activity android:name=".DrawerMenuItems.ShareAcitivity" />
+        <activity android:name=".DrawerMenuItems.BuyListActivity" />
+        <activity android:name=".DrawerMenuItems.ScoreActivity" />
+        <activity android:name=".RoomDetailActivity.RoomDetailActivity" />
+        <activity android:name=".Profile.ReportedComments.ReportedComments" />
+        <activity android:name=".Profile.EditProfile.EditProfileActivity" />
+        <activity android:name=".Profile.BookmarkFoods.BookmarkFoodsActivity" />
+        <activity android:name=".Profile.LikedFoods.LikedFoodsActivity" />
+        <activity android:name=".Profile.LikedComments.LikedCommentsActivity" />
+        <activity android:name=".Profile.MyComments.MyCommentsActivity" />
+        <activity android:name=".Profile.ProfileActivity" />
+        <activity android:name=".LoginActivity.Register.RegisterActivity" />
+        <activity android:name=".LoginActivity.LoginActivity" />
+        <activity android:name=".CategoryActivity.ActivityCategory" />
+        <activity android:name=".Comments.ActivityComments" />
+        <activity android:name=".DetailActivity.DetailActivity" />
+        <activity android:name=".MainActivity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

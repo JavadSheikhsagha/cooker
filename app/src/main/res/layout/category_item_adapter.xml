@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_catItem_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:id="@+id/card_catItem_image"
+            >
+
+
+            <ImageView
+                android:id="@+id/img_catItem_image"
+                android:background="@drawable/shape_cat_item_image"
+                android:scaleType="centerCrop"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_like_border_black_24dp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ته چین مرغ"
+            android:layout_toLeftOf="@+id/card_catItem_image"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:id="@+id/txt_catItem_title"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ته چین مرغ"
+            android:layout_toLeftOf="@+id/card_catItem_image"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:id="@+id/txt_catItem_chefId"
+            android:layout_below="@+id/txt_catItem_title"
+            />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_like_black_24dp"
+            android:tint="@color/colorRed"
+            android:layout_below="@+id/txt_catItem_chefId"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/img_catItem_like"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorRed"
+            android:layout_toRightOf="@+id/img_catItem_like"
+            android:text="2000"
+            android:layout_below="@+id/txt_catItem_chefId"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/txt_catItem_like"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="بوشهری"
+            android:textColor="@color/colorGrey900"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/txt_catItem_chefId"
+            android:layout_toLeftOf="@+id/card_catItem_image"
+            android:id="@+id/txt_catItem_catFrom"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorGrey100"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DrawerMenuItems.BuyListActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_buyList_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        >
+
+        <ImageView
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:padding="13dp"
+            android:tint="@color/colorWhite2"
+            android:id="@+id/img_buyList_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="لیست خرید"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:textColor="@color/colorWhite2"
+            android:textSize="18sp"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel_buyList_actionbar"
+        android:id="@+id/rv_buyList_rv"
+        android:layout_marginBottom="80dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite2"
+        >
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_detail_button"
+            android:layout_margin="16dp"
+            android:text="ارسال لیست خرید"
+            android:foreground="?attr/selectableItemBackground"
+            android:textColor="@color/colorWhite2"
+            android:textSize="16sp"
+            android:id="@+id/btn_buyList_share"
+            />
+
+        <Button
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_detail_button"
+            android:layout_margin="16dp"
+            android:text="پاک کردن"
+            android:textColor="@color/colorWhite2"
+            android:textSize="16sp"
+            android:id="@+id/btn_buyList_delete"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

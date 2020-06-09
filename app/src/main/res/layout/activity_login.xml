@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_login_back"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="13dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:tint="@color/colorWhite2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="32dp"
+            android:text="ورود"
+            android:textColor="@color/colorWhite2"
+            android:textSize="22sp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="نام کاربری"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:gravity="right|center"
+            android:id="@+id/edt_login_userName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_login_edittext"
+            android:drawableRight="@drawable/ic_person_black_24dp"
+            android:drawablePadding="4dp"
+            android:hint="نام کاربری"
+            android:paddingRight="8dp"
+            android:textColorHint="@color/colorGrey900"
+            android:paddingLeft="12dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="رمز عبور"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:gravity="right|center"
+            android:hint="رمز عبور"
+            android:paddingLeft="12dp"
+            android:id="@+id/edt_login_password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_login_edittext"
+            android:drawableRight="@drawable/ic_vpn_key_black_24dp"
+            android:drawablePadding="4dp"
+            android:paddingRight="8dp"
+            android:textColorHint="@color/colorGrey900"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:padding="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="هنوز حسابی ندارید؟ برای ثبت نام کلیک کنید"
+            android:textColor="@color/colorGreenLight"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:textSize="15sp"
+            android:id="@+id/txt_login_register"
+            />
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login_login"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorBlue"
+        android:text="ورود"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite2"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

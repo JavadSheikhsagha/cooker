@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView app:cardCornerRadius="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_veganRv_parent"
+    android:layout_marginRight="4dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:background="@color/colorGreenLight"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <com.lid.lib.LabelImageView
+            android:id="@+id/img_veganRv_image"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_like_black_24dp"
+            app:label_backgroundColor="@color/colorGreenLight"
+            app:label_orientation="RIGHT_TOP"
+            app:label_text="جدید" />
+
+        <View
+            android:layout_marginBottom="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorWhite1"
+            />
+
+        <RelativeLayout
+
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_marginRight="6dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/img_veganRv_restaurant"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_restaurant_black_24dp"
+                android:tint="@color/colorPrimaryDark"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/img_veganRv_restaurant"
+                android:textSize="17sp"
+                android:textColor="@color/colorWhite1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="ته چین مرغ"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/txt_veganRv_title"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:textSize="14sp"
+            android:textColor="@color/colorWhite1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="جواد شیخ سقا"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="4dp"
+            android:id="@+id/txt_veganRv_user"
+            />
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorWhite1"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_like_black_24dp"
+                android:tint="@color/colorRed"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/img_veganRv_like"
+                />
+
+            <TextView
+                android:textColor="@color/colorRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2000"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/img_veganRv_like"
+                android:layout_marginLeft="4dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/txt_veganRv_likes"/>
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

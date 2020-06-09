@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:foreground="?attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_profileRv_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:id="@+id/img_profileRv_icon"
+        android:tint="@color/colorBlack"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ویرایش حساب کاربری"
+        android:layout_toLeftOf="@+id/img_profileRv_icon"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorBlack"
+        android:id="@+id/txt_profileRv_title"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey300"
+        android:layout_below="@+id/img_profileRv_icon"
+        />
+
+</RelativeLayout>
