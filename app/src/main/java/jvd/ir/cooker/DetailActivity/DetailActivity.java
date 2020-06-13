@@ -295,15 +295,11 @@ public class DetailActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(List<ImageModel> imageModels) {
-                        ImageModel imageModel = new ImageModel();
-                        imageModel.setImage(FOOD_IMG);
-                        imageModels.add(imageModel);
                         MainSliderAdapter adapter = new MainSliderAdapter(imageModels);
 
-                        if (imageModels.size() > 2) {
                             slider.setAdapter(adapter);
                             slider.setSelectedSlide(imageModels.size());
-                        }
+
                     }
 
                     @Override
@@ -401,9 +397,8 @@ public class DetailActivity extends AppCompatActivity {
                     public void onSuccess(List<FoodIngredients> foodIngredients) {
                         foodies = foodIngredients;
                         foodIngredients2 = foodIngredients.get(0);
-                        IngredientsAdapter adapter = new IngredientsAdapter(DetailActivity.this, foodIngredients, PEOPLE);
+                        IngredientsAdapter adapter = new IngredientsAdapter(DetailActivity.this, foodIngredients, 1);
                         rvIngredients.setAdapter(adapter);
-
                     }
 
                     @Override

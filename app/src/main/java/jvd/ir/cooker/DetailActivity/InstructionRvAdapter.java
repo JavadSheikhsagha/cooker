@@ -41,15 +41,14 @@ public class InstructionRvAdapter extends RecyclerView.Adapter<InstructionRvAdap
         holder.txtDesc.setText(howTo.get(position).getTodo());
         if (!howTo.get(position).getWarn().equals("")){
             holder.txtWarning.setText("هشدار: "+ howTo.get(position).getWarn());
+            holder.txtWarning.setVisibility(View.VISIBLE);
             holder.imgWarn.setVisibility(View.VISIBLE);
         }
 
 
         if (position%2==0){
-
             holder.parentDesc.setBackgroundColor(ContextCompat.getColor(context,R.color.colorGrey100));
         } else {
-
             holder.parentDesc.setBackgroundColor(ContextCompat.getColor(context,R.color.colorGrey300));
         }
     }

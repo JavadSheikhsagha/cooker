@@ -363,6 +363,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("LOG4", "onError: " + e.toString());
                     }
                 });
+
     }
 
     private void setupViews() {
@@ -403,6 +404,14 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_buy_list, R.id.nav_question, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
+
+        navigationView.getMenu().findItem(R.id.nav_groups).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, AllCategoryActivity.class));
+                return false;
+            }
+        });
 
         navigationView.getMenu().findItem(R.id.nav_liked).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override

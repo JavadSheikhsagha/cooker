@@ -41,9 +41,8 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         FoodIngredients food = ingredients.get(position);
 
         holder.txtTitle.setText(food.getIngTitle());
-        int amount = Integer.parseInt(food.getAmount());
-        amount = amount * number;
-        String newAmount = amount + " " + food.getUnit();
+
+        String newAmount = food.getAmount() + " " + food.getUnit();
         holder.txtAmount.setText(newAmount);
 
         if (position % 2 > 0) {

@@ -158,7 +158,7 @@ public class RoomDetailActivity extends AppCompatActivity {
                 for (int i = 0; i < amountT; i++) {
                     ingsModel2s = IngsAppDatabase.getInstance(getApplicationContext()).ings().findByFoodID(FOOD_ID);
                 }
-                adapter = new IngsRvAdapter(getApplicationContext(), ingsModel2s, PEOPLE);
+                adapter = new IngsRvAdapter(getApplicationContext(), ingsModel2s,1);
                 rvIngredients.setAdapter(adapter);
 
             }
