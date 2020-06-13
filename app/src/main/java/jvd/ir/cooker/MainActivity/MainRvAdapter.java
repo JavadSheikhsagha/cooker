@@ -48,7 +48,7 @@ public class MainRvAdapter extends RecyclerView.Adapter<MainRvAdapter.RvViewHold
         holder.txtUser.setText(foodModel.getCheefId());
         holder.txtTitle.setText(foodModel.getTitle());
         holder.txtLikes.setText(foodModel.getLikes());
-        Picasso.get().load(foodModel.getImage()).into(holder.image);
+        Picasso.get().load(foodModel.getImage()).placeholder(R.drawable.ic_arrow_back_black_24dp).into(holder.image);
 
         if (foodModel.getmNew().equals("0")){
             holder.image.setLabelVisual(false);

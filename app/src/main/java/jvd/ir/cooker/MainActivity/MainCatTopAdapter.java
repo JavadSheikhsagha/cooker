@@ -20,6 +20,8 @@ public class MainCatTopAdapter extends RecyclerView.Adapter<MainCatTopAdapter.Ma
 
     setOnCatClick onCatClick;
 
+    setOnAllCatClick onAllCatClick;
+
     public MainCatTopAdapter(List<CategoryModel> category,setOnCatClick onCatClick){
         this.category=category;
         this.onCatClick=onCatClick;
@@ -47,13 +49,17 @@ public class MainCatTopAdapter extends RecyclerView.Adapter<MainCatTopAdapter.Ma
             @Override
             public void onClick(View v) {
                 if (model.getId().equals("0")){
-
+                    onAllCatClick.onclick();
                 } if (!model.getId().equals("0")){
                     onCatClick.onclick(model);
                 }
             }
         });
 
+    }
+
+    public void setOnAllCatClick(setOnAllCatClick onAllCatClick) {
+        this.onAllCatClick = onAllCatClick;
     }
 
     @Override
@@ -77,4 +83,9 @@ public class MainCatTopAdapter extends RecyclerView.Adapter<MainCatTopAdapter.Ma
     public interface setOnCatClick{
         void onclick(CategoryModel categoryModel);
     }
+
+    public interface setOnAllCatClick{
+        void onclick();
+    }
+
 }

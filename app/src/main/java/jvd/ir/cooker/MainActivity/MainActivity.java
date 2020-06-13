@@ -34,6 +34,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import jvd.ir.cooker.CategoryActivity.ActivityCategory;
+import jvd.ir.cooker.CategoryActivity.AllCategoryActivity;
 import jvd.ir.cooker.DetailActivity.DetailActivity;
 import jvd.ir.cooker.DrawerMenuItems.AboutActivity;
 import jvd.ir.cooker.DrawerMenuItems.BuyListActivity;
@@ -198,6 +199,13 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, ActivityCategory.class);
                                 intent.putExtra("position", categoryModel.getmPosition());
                                 startActivity(intent);
+                            }
+                        });
+
+                        adapter.setOnAllCatClick(new MainCatTopAdapter.setOnAllCatClick() {
+                            @Override
+                            public void onclick() {
+                                startActivity(new Intent(MainActivity.this, AllCategoryActivity.class));
                             }
                         });
 

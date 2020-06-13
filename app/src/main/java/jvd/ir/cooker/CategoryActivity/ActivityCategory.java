@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import com.google.android.material.tabs.TabLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,6 +40,13 @@ public class ActivityCategory extends AppCompatActivity {
         imgBack = findViewById(R.id.img_cat_back);
         viewPager = findViewById(R.id.vp_cat_viewPager);
         tabLayout=findViewById(R.id.tl_cat_tabLayout);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());

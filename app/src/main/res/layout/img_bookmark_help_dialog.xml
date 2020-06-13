@@ -13,6 +13,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="غذا های ذخیره شده :"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/txt_helpDialog_title"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:layout_below="@+id/txt_helpDialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="لیست ذخیره شده ها قابلیت جدیدی است که شما میتوانید در حالت آفلاین هم از آن استفاده کنید."
             android:textColor="@color/colorBlack"
             android:layout_marginTop="16dp"
