@@ -77,7 +77,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                viewModel.userLogin(edtUserName.getText().toString().trim(),edtPassword.getText().toString().trim())
+                if (edtUserName.length()<3){
+                    Toast.makeText(LoginActivity.this, "نام کاربری باید بیش از 3 کاراکتر باشد.", Toast.LENGTH_LONG).show();
+                } else if (edtPassword.length()<3) {
+                    Toast.makeText(LoginActivity.this, "رمز عبور باید بیش از 3 کاراکتر باشد.", Toast.LENGTH_LONG).show();
+                }
+
+                viewModel.userLogin(edtUserName.getText().toString(),edtPassword.getText().toString())
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new SingleObserver<MessageModel>() {

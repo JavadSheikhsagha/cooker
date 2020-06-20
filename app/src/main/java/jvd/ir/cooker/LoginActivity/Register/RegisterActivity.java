@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -30,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
 
     LoginViewModel viewModel;
+
+    String PHONE_NUMBER;
 
     CompositeDisposable compositeDisposable=new CompositeDisposable();
 
@@ -66,35 +70,52 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                viewModel.userRegister(edtUserName.getText().toString().trim(),edtPassword.getText().toString().trim(),edtNumber.getText().toString().trim())
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new SingleObserver<MessageModel>() {
-                            @Override
-                            public void onSubscribe(Disposable d) {
-                                compositeDisposable.add(d);
-                            }
+                if (!isValidMail(edtNumber.getText().toString())){
+                    Toast.makeText(RegisterActivity.this, "فرمت شماره وارد شده صحیح نمی باشد.", Toast.LENGTH_SHORT).show();
 
-                            @Override
-                            public void onSuccess(MessageModel messageModel) {
+                } else if (edtUserName.length()<3){
+                    Toast.makeText(RegisterActivity.this, "یوزرنیم وارد شده باید بیشتر از 3 کاراکتر باشد.", Toast.LENGTH_SHORT).show();
+                } else if (edtPassword.length()<3){
+                    Toast.makeText(RegisterActivity.this, "رمز عبور وارد شده باید بیش از 3 کاراکتر باشد.", Toast.LENGTH_SHORT).show();
+                } else {
 
+                    viewModel.userRegister(edtUserName.getText().toString(),edtPassword.getText().toString(),edtNumber.getText().toString())
+                            .subscribeOn(Schedulers.newThread())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new SingleObserver<MessageModel>() {
+                                @Override
+                                public void onSubscribe(Disposable d) {
+                                    compositeDisposable.add(d);
+                                }
 
-                                    Toast.makeText(RegisterActivity.this, "ثبت نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show();
+                                @Override
+                                public void onSuccess(MessageModel messageModel) {
+
+                                    Toast.makeText(RegisterActivity.this, "ثبت نام با موفقیت انجام شد.", Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
                                     viewModel.saveUserName(messageModel.getMessage());
                                     startActivity(intent);
                                     finish();
 
+                                }
 
-                            }
+                                @Override
+                                public void onError(Throwable e) {
 
-                            @Override
-                            public void onError(Throwable e) {
+                                }
+                            });
+                }
 
-                            }
-                        });
             }
         });
+    }
+
+    private boolean isValidMail(String number) {
+
+        PHONE_NUMBER = "[0-9]{10}";
+
+        return Pattern.compile(PHONE_NUMBER).matcher(number).matches();
+
     }
 
     @Override
@@ -109,4 +130,5 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
         super.onBackPressed();
     }
+
 }

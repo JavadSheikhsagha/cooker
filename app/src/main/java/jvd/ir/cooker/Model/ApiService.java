@@ -21,69 +21,69 @@ public interface ApiService {
     Single<List<FoodModel>> getVegan();
 
     @GET("cook/getfooddetail.php")
-    Single<List<FoodModel>> getFoodDetail(@Query("food_id")String foodId);
+    Single<List<FoodModel>> getFoodDetail(@Query("food_id") String foodId);
 
     @GET("cook/getings.php")
     Single<List<FoodIngredients>> getIng(@Query("food_id") String foodId);
 
     @GET("cook/getintro.php")
-    Single<List<FoodHowTo>> getFoodInstruction(@Query("food_id")String foodId);
+    Single<List<FoodHowTo>> getFoodInstruction(@Query("food_id") String foodId);
 
     @GET("cook/getcomment.php")
     Single<List<CommentsModel>> getComments(@Query("food_id") String foodId);
 
     @GET("cook/addcomment.php")
-    Single<MessageModel> addComment(@Query("food_id")String foodId,
-                                    @Query("comment")String comment,
-                                    @Query("user_name")String userName);
+    Single<MessageModel> addComment(@Query("food_id") String foodId,
+                                    @Query("comment") String comment,
+                                    @Query("user_name") String userName);
 
     @GET("cook/likecomment.php")
     Single<MessageModel> likeComment(@Query("comment_id") String commentId,
                                      @Query("user_name") String userName);
 
     @GET("cook/getifliked.php")
-    Single<String > getIfCommentLiked(@Query("comment_id") String comment_id,
-                                      @Query("user_name") String userName);
+    Single<String> getIfCommentLiked(@Query("comment_id") String comment_id,
+                                     @Query("user_name") String userName);
 
     @GET("cook/getcattop.php")
     Single<List<CategoryModel>> getCatTop();
 
     @GET("cook/getcatlistitems.php")
-    Single<List<FoodModel>> getCatListItems(@Query("category")String category);
+    Single<List<FoodModel>> getCatListItems(@Query("category") String category);
 
     @GET("cook/likefood.php")
-    Single<MessageModel> likeFood(@Query("food_id")String foodId,
-                                  @Query("user_name")String userName);
+    Single<MessageModel> likeFood(@Query("food_id") String foodId,
+                                  @Query("user_name") String userName);
 
     @GET("cook/getiffoodlike.php")
-    Single<String > getIfFoodLiked(@Query("food_id")String foodId,
-                                   @Query("user_name") String userName);
+    Single<String> getIfFoodLiked(@Query("food_id") String foodId,
+                                  @Query("user_name") String userName);
 
     @GET("cook/userlogin.php")
-    Single<MessageModel> userLogin(@Query("user_name")String userName,
-                                   @Query("password")String password);
+    Single<MessageModel> userLogin(@Query("user_name") String userName,
+                                   @Query("password") String password);
 
     @GET("cook/userregister.php")
-    Single<MessageModel> userRegister(@Query("user_name")String userName,
-                                      @Query("password")String Password,
-                                      @Query("mobile")String number);
+    Single<MessageModel> userRegister(@Query("user_name") String userName,
+                                      @Query("password") String Password,
+                                      @Query("mobile") String number);
 
     @GET("cook/getmycomments.php")
-    Single<List<CommentsModel>> getMyComments(@Query("user_name")String userName);
+    Single<List<CommentsModel>> getMyComments(@Query("user_name") String userName);
 
     @GET("cook/getlikedcomments.php")
-    Single<List<CommentsModel>> getLikedComments(@Query("user_name")String userName);
+    Single<List<CommentsModel>> getLikedComments(@Query("user_name") String userName);
 
     @GET("cook/getlikedfoods.php")
-    Single<List<FoodModel>> getLikedFoods(@Query("user_name")String userName);
+    Single<List<FoodModel>> getLikedFoods(@Query("user_name") String userName);
 
     @GET("cook/reportcomment.php")
-    Single<MessageModel> reportComment(@Query("user_name")String userName,
-                                       @Query("comment_id")String commentId,
-                                       @Query("reason")String reason);
+    Single<MessageModel> reportComment(@Query("user_name") String userName,
+                                       @Query("comment_id") String commentId,
+                                       @Query("reason") String reason);
 
     @GET("cook/getreportcomments.php")
-    Single<List<CommentsModel>> getReportedComments(@Query("user_name")String userName);
+    Single<List<CommentsModel>> getReportedComments(@Query("user_name") String userName);
 
     @GET("cook/getdrinks.php")
     Single<List<FoodModel>> getDrinks();
@@ -92,10 +92,10 @@ public interface ApiService {
     Single<List<FoodModel>> getDeserts();
 
     @GET("cook/getprofile.php")
-    Single<ProfileModel> getProfile(@Query("user_name")String userName);
+    Single<ProfileModel> getProfile(@Query("user_name") String userName);
 
     @GET("cook/updateprofile.php")
-    Single<MessageModel> updateProfile(@Query("user_name")String userName,
-                                       @Query("mobile")String mobile);
+    Single<MessageModel> updateProfile(@Query("user_name") String userName,
+                                       @Query("mobile") String mobile);
 
 }

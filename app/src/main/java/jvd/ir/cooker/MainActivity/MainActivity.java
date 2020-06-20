@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_main);
 
-
         setupViews();
 
         USER_NAME = viewModel.getUserName();
@@ -112,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         getDrinks();
 
         getDeserts();
+
     }
 
     private void getDeserts() {

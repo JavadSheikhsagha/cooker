@@ -25,7 +25,6 @@
             android:id="@+id/card_catItem_image"
             >
 
-
             <ImageView
                 android:id="@+id/img_catItem_image"
                 android:background="@drawable/shape_cat_item_image"
@@ -34,6 +33,7 @@
                 android:layout_height="100dp"
                 android:src="@drawable/ic_like_border_black_24dp"
                 />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -48,6 +48,7 @@
             />
 
         <TextView
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" ته چین مرغ"
