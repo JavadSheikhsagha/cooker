@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CategoryActivity.AllCategoryActivity"></activity>
         <activity android:name=".DrawerMenuItems.AboutActivity" />
-        <activity android:name=".DrawerMenuItems.ShareAcitivity" />
+        <activity android:name=".DrawerMenuItems.ShareActivity" />
         <activity android:name=".DrawerMenuItems.BuyListActivity" />
         <activity android:name=".DrawerMenuItems.ScoreActivity" />
         <activity android:name=".RoomDetailActivity.RoomDetailActivity" />

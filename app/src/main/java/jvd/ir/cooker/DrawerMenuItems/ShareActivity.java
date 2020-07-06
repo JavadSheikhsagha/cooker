@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import jvd.ir.cooker.R;
 
-public class ShareAcitivity extends AppCompatActivity {
+public class ShareActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

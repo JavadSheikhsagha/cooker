@@ -13,11 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.github.ybq.android.spinkit.SpinKitView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +58,10 @@ public class DetailActivity extends AppCompatActivity {
     NestedScrollView scrollView;
 
     RecyclerView rvIngredients, rvHowTo, rvOther;
+
+    RelativeLayout relDetailSplash;
+
+    SpinKitView spinKitView;
 
     DetailViewModel viewModel;
 
@@ -309,6 +315,10 @@ public class DetailActivity extends AppCompatActivity {
                         ImageModel imageModel = new ImageModel();
                         imageModel.setImage(FOOD_IMG);
                         imgs.add(imageModel);
+                        slider.setVisibility(View.VISIBLE);
+                        YoYo.with(Techniques.FadeIn)
+                                .duration(700)
+                                .playOn(slider);
                         MainSliderAdapter adapter1 = new MainSliderAdapter(imgs);
                         slider.setAdapter(adapter1);
                     }
@@ -328,6 +338,7 @@ public class DetailActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(List<FoodModel> foodModels) {
+
                         txtTitle1.setText(foodModels.get(0).getTitle());
                         txtTitle2.setText(foodModels.get(0).getTitle());
                         txtCategory.setText(foodModels.get(0).getCategory());
@@ -374,11 +385,23 @@ public class DetailActivity extends AppCompatActivity {
                             imgDifficulty.setColorFilter(ContextCompat.getColor(DetailActivity.this, R.color.colorRed));
                         }
 
+                        YoYo.with(Techniques.FadeOut)
+                                .delay(700)
+                                .duration(700)
+                                .playOn(relDetailSplash);
+                        YoYo.with(Techniques.FadeOut)
+                                .delay(900)
+                                .duration(700)
+                                .playOn(spinKitView);
+
+                        scrollView.setNestedScrollingEnabled(true);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Toast.makeText(DetailActivity.this, "مشکلی در ارتباط رخ داده است.", Toast.LENGTH_SHORT).show();
+                        scrollView.setNestedScrollingEnabled(false);
                     }
                 });
     }
@@ -414,8 +437,13 @@ public class DetailActivity extends AppCompatActivity {
         viewModel = new DetailViewModel(this);
 
         scrollView = findViewById(R.id.scroll_detail_nested);
+        scrollView.setNestedScrollingEnabled(false);
 
         slider = findViewById(R.id.slider_detail);
+        slider.setVisibility(View.INVISIBLE);
+
+        relDetailSplash = findViewById(R.id.rel_detailSplash);
+        spinKitView = findViewById(R.id.spin_detailSplash_loading);
 
         txtTitle1 = findViewById(R.id.txt_detail_title1);
         txtTitle2 = findViewById(R.id.txt_detail_title2);

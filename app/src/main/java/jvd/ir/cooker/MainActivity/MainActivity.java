@@ -34,8 +34,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import javax.net.ssl.ManagerFactoryParameters;
-
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -45,9 +43,6 @@ import jvd.ir.cooker.CategoryActivity.ActivityCategory;
 import jvd.ir.cooker.CategoryActivity.AllCategoryActivity;
 import jvd.ir.cooker.DetailActivity.DetailActivity;
 import jvd.ir.cooker.DrawerMenuItems.AboutActivity;
-import jvd.ir.cooker.DrawerMenuItems.BuyListActivity;
-import jvd.ir.cooker.DrawerMenuItems.ScoreActivity;
-import jvd.ir.cooker.DrawerMenuItems.ShareAcitivity;
 import jvd.ir.cooker.LoginActivity.LoginActivity;
 import jvd.ir.cooker.Model.CategoryModel;
 import jvd.ir.cooker.Model.FoodModel;
@@ -56,8 +51,6 @@ import jvd.ir.cooker.Profile.BookmarkFoods.BookmarkFoodsActivity;
 import jvd.ir.cooker.Profile.LikedFoods.LikedFoodsActivity;
 import jvd.ir.cooker.Profile.ProfileActivity;
 import jvd.ir.cooker.R;
-import ss.com.bannerslider.ImageLoadingService;
-import ss.com.bannerslider.Slider;
 import ss.com.bannerslider.event.OnSlideClickListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -426,6 +419,7 @@ public class MainActivity extends AppCompatActivity {
                                 YoYo.with(Techniques.ZoomOut)
                                         .duration(1000)
                                         .playOn(relSplashScreen);
+                                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                             }
                         },1500);
                     }
@@ -492,6 +486,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 4/27/2020 SLIDER ON CLICK
 
         drawer = findViewById(R.id.drawer_layout);
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
 
