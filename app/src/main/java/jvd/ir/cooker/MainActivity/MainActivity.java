@@ -9,12 +9,18 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,7 +28,9 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -56,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    RelativeLayout relIranianFood, relBestFood, relDrinks, relDeserts, relCatTopRv, relVegan;
+    RelativeLayout relIranianFood, relBestFood, relDrinks, relDeserts, relCatTopRv, relVegan, relInstagramLink, relSplashScreen;
 
     ss.com.bannerslider.Slider slider;
 
     RecyclerView rvBestFood, rvDrinks, rvCatsRvTop, rvDeserts, rvIranianFood, rvVegan;
 
-    TextView txtLogin;
+    TextView txtLogin, txtMainSplashSaved;
 
     MainViewModel viewModel;
 
@@ -74,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawer;
 
-    ImageView imgMenu, imgLogin;
+    ImageView imgMenu, imgLogin, imgInstagramLink;
 
     CardView actionBar;
 
@@ -83,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
     int action = 0;
 
     String USER_NAME = "";
+
+    SpinKitView spin;
+
+    Button btnMainSplashSaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +124,57 @@ public class MainActivity extends AppCompatActivity {
 
         getDeserts();
 
+        getInstagramLink();
+
+    }
+
+    private void getInstagramLink() {
+
+        viewModel.getInstagramLink().subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<List<ImageModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        compositeDisposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(List<ImageModel> imageModels) {
+                        if (!imageModels.get(0).getImage().equals("")){
+                            Picasso.get()
+                                    .load(imageModels.get(0).getImage())
+                                    .placeholder(ContextCompat.getDrawable(MainActivity.this,R.color.colorBlack))
+                                    .into(imgInstagramLink);
+                        }
+
+                        relInstagramLink.setVisibility(View.VISIBLE);
+                        relInstagramLink.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Uri uri = Uri.parse("http://instagram.com/_u/javad_sheikhsagha");
+                                Intent insta = new Intent(Intent.ACTION_VIEW, uri);
+                                insta.setPackage("com.instagram.android");
+
+                                if (isIntentAvailable(MainActivity.this, insta)){
+                                    startActivity(insta);
+                                } else{
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/javad_sheikhsagha/")));
+                                }
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+    }
+
+    private boolean isIntentAvailable(Context ctx, Intent intent) {
+        final PackageManager packageManager = ctx.getPackageManager();
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
     }
 
     private void getDeserts() {
@@ -356,11 +419,37 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                         rvIranianFood.setAdapter(mainRvAdapter);
+                        Handler handler =new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                YoYo.with(Techniques.ZoomOut)
+                                        .duration(1000)
+                                        .playOn(relSplashScreen);
+                            }
+                        },1500);
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         Log.e("LOG4", "onError: " + e.toString());
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                YoYo.with(Techniques.FadeOut)
+                                        .duration(700)
+                                        .playOn(spin);
+                                YoYo.with(Techniques.FadeIn)
+                                        .duration(700)
+                                        .playOn(txtMainSplashSaved);
+                                txtMainSplashSaved.setVisibility(View.VISIBLE);
+                                btnMainSplashSaved.setVisibility(View.VISIBLE);
+                                YoYo.with(Techniques.FadeIn)
+                                        .duration(700)
+                                        .playOn(btnMainSplashSaved);
+                            }
+                        },1500);
+
                     }
                 });
 
@@ -373,6 +462,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new MainViewModel(this);
 
         imgMenu = findViewById(R.id.img_mainActionBar_Menu);
+        imgInstagramLink = findViewById(R.id.img_main_instagramLink);
 
         actionBar = findViewById(R.id.card_main_actionBar);
 
@@ -384,6 +474,8 @@ public class MainActivity extends AppCompatActivity {
         relDeserts = findViewById(R.id.rel_main_catsRV);
         relIranianFood = findViewById(R.id.rel_main_iranianFood);
         relVegan = findViewById(R.id.rel_main_veganFood);
+        relInstagramLink = findViewById(R.id.rel_main_instagramLink);
+        relSplashScreen = findViewById(R.id.rel_main_splash);
 
         rvBestFood = findViewById(R.id.rv_main_topFood);
         rvDrinks = findViewById(R.id.rv_main_topUsers);
@@ -391,6 +483,10 @@ public class MainActivity extends AppCompatActivity {
         rvIranianFood = findViewById(R.id.rv_main_iranianFood);
         rvVegan = findViewById(R.id.rv_main_veganFood);
         rvCatsRvTop = findViewById(R.id.rv_main_category);
+
+        spin = findViewById(R.id.spin_kit);
+        btnMainSplashSaved = findViewById(R.id.btn_mainSplash_saved);
+        txtMainSplashSaved = findViewById(R.id.txt_mainSplash_saved);
 
         slider = findViewById(R.id.slider_main);
         // TODO: 4/27/2020 SLIDER ON CLICK
@@ -432,7 +528,8 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_buy_list).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, BuyListActivity.class));
+                Toast.makeText(MainActivity.this, "در نسخه بعد اضافه میشود.", Toast.LENGTH_SHORT).show();
+                // TODO: 6/28/2020 BUY LIST
                 return false;
             }
         });
@@ -440,7 +537,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_score).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, ScoreActivity.class));
+                // TODO: 6/28/2020 BAZAAR LINK TO APP
                 return false;
             }
         });
@@ -448,7 +545,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_send).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, ShareAcitivity.class));
+                // TODO: 6/28/2020 SHARE APP
                 return false;
             }
         });
@@ -456,6 +553,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_question).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                // TODO: 6/28/2020 ASK QUESTIONS
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 return false;
             }
@@ -513,6 +611,15 @@ public class MainActivity extends AppCompatActivity {
                     finish();
 
                 }
+            }
+        });
+
+        btnMainSplashSaved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,BookmarkFoodsActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -6,8 +6,15 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        android:paddingRight="32dp"
+        android:layout_width="290dp"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimary"
+        />
+
+    <RelativeLayout
         android:paddingRight="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -162,7 +169,7 @@
             android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/colorBlack"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:foreground="?attr/selectableItemBackground"
             android:id="@+id/btn_helpTime_close"/>
 

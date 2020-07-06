@@ -8,93 +8,93 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @GET("cook/getiranianfood.php")
+    @GET("getiranianfood.php")
     Single<List<FoodModel>> getIranianFood();
 
-    @GET("cook/getbestfood.php")
+    @GET("getbestfood.php")
     Single<List<FoodModel>> getBestFood();
 
-    @GET("cook/foodimage.php")
+    @GET("foodimage.php")
     Single<List<ImageModel>> getImages(@Query("food_id") String foodId);
 
-    @GET("cook/getvegan.php")
+    @GET("getvegan.php")
     Single<List<FoodModel>> getVegan();
 
-    @GET("cook/getfooddetail.php")
+    @GET("getfooddetail.php")
     Single<List<FoodModel>> getFoodDetail(@Query("food_id") String foodId);
 
-    @GET("cook/getings.php")
+    @GET("getings.php")
     Single<List<FoodIngredients>> getIng(@Query("food_id") String foodId);
 
-    @GET("cook/getintro.php")
+    @GET("getintro.php")
     Single<List<FoodHowTo>> getFoodInstruction(@Query("food_id") String foodId);
 
-    @GET("cook/getcomment.php")
+    @GET("getcomment.php")
     Single<List<CommentsModel>> getComments(@Query("food_id") String foodId);
 
-    @GET("cook/addcomment.php")
+    @GET("addcomment.php")
     Single<MessageModel> addComment(@Query("food_id") String foodId,
                                     @Query("comment") String comment,
                                     @Query("user_name") String userName);
 
-    @GET("cook/likecomment.php")
+    @GET("likecomment.php")
     Single<MessageModel> likeComment(@Query("comment_id") String commentId,
                                      @Query("user_name") String userName);
 
-    @GET("cook/getifliked.php")
+    @GET("getifliked.php")
     Single<String> getIfCommentLiked(@Query("comment_id") String comment_id,
                                      @Query("user_name") String userName);
 
-    @GET("cook/getcattop.php")
+    @GET("getcattop.php")
     Single<List<CategoryModel>> getCatTop();
 
-    @GET("cook/getcatlistitems.php")
+    @GET("getcatlistitems.php")
     Single<List<FoodModel>> getCatListItems(@Query("category") String category);
 
-    @GET("cook/likefood.php")
+    @GET("likefood.php")
     Single<MessageModel> likeFood(@Query("food_id") String foodId,
                                   @Query("user_name") String userName);
 
-    @GET("cook/getiffoodlike.php")
+    @GET("getiffoodlike.php")
     Single<String> getIfFoodLiked(@Query("food_id") String foodId,
                                   @Query("user_name") String userName);
 
-    @GET("cook/userlogin.php")
+    @GET("userlogin.php")
     Single<MessageModel> userLogin(@Query("user_name") String userName,
                                    @Query("password") String password);
 
-    @GET("cook/userregister.php")
+    @GET("userregister.php")
     Single<MessageModel> userRegister(@Query("user_name") String userName,
                                       @Query("password") String Password,
                                       @Query("mobile") String number);
 
-    @GET("cook/getmycomments.php")
+    @GET("getmycomments.php")
     Single<List<CommentsModel>> getMyComments(@Query("user_name") String userName);
 
-    @GET("cook/getlikedcomments.php")
+    @GET("getlikedcomments.php")
     Single<List<CommentsModel>> getLikedComments(@Query("user_name") String userName);
 
-    @GET("cook/getlikedfoods.php")
+    @GET("getlikedfoods.php")
     Single<List<FoodModel>> getLikedFoods(@Query("user_name") String userName);
 
-    @GET("cook/reportcomment.php")
+    @GET("reportcomment.php")
     Single<MessageModel> reportComment(@Query("user_name") String userName,
                                        @Query("comment_id") String commentId,
                                        @Query("reason") String reason);
 
-    @GET("cook/getreportcomments.php")
+    @GET("getreportcomments.php")
     Single<List<CommentsModel>> getReportedComments(@Query("user_name") String userName);
 
-    @GET("cook/getdrinks.php")
+    @GET("getdrinks.php")
     Single<List<FoodModel>> getDrinks();
 
-    @GET("cook/getdeserts.php")
+    @GET("getdeserts.php")
     Single<List<FoodModel>> getDeserts();
 
-    @GET("cook/getprofile.php")
+    @GET("getprofile.php")
     Single<ProfileModel> getProfile(@Query("user_name") String userName);
 
-    @GET("cook/updateprofile.php")
+    @GET("updateprofile.php")
     Single<MessageModel> updateProfile(@Query("user_name") String userName,
                                        @Query("mobile") String mobile);
 

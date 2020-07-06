@@ -43,7 +43,7 @@ public class VeganMainRvAdapter extends RecyclerView.Adapter<VeganMainRvAdapter.
         holder.txtTitle.setText(foodModel.getTitle());
         holder.txtLikes.setText(foodModel.getLikes());
         holder.txtUser.setText(foodModel.getCheefId());
-        Picasso.get().load(foodModel.getImage()).into(holder.image);
+        Picasso.get().load(foodModel.getImage()).placeholder(R.drawable.applogo).into(holder.image);
 
         if (!foodModel.getmNew().equals("1")){
             holder.image.setLabelVisual(false);

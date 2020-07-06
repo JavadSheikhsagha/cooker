@@ -20,7 +20,7 @@
         <com.lid.lib.LabelImageView
             android:id="@+id/image1"
             android:layout_width="155dp"
-            android:layout_height="155dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_like_black_24dp"
             app:label_backgroundColor="@color/colorGreenLight"

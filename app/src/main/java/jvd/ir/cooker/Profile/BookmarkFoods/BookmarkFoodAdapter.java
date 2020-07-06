@@ -41,7 +41,7 @@ public class BookmarkFoodAdapter extends RecyclerView.Adapter<BookmarkFoodAdapte
         holder.txtCatFrom.setText(model.getCategory());
         holder.txtChefId.setText(model.getChefId());
 
-        Picasso.get().load(model.getImage()).into(holder.image);
+        Picasso.get().load(model.getImage()).placeholder(R.drawable.applogo).into(holder.image);
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override

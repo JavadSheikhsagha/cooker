@@ -28,6 +28,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import jvd.ir.cooker.Comments.ActivityComments;
+import jvd.ir.cooker.Comments.SignInDialog;
 import jvd.ir.cooker.MainActivity.MainRvAdapter;
 import jvd.ir.cooker.MainActivity.MainSliderAdapter;
 import jvd.ir.cooker.Model.FoodHowTo;
@@ -142,7 +143,7 @@ public class DetailActivity extends AppCompatActivity {
 
                 for (int i = 0; i < foodies.size(); i++) {
                     ingredient = foodies.get(i).getIngTitle()
-                            + "  " + foodies.get(i).getAmount()
+                            + " :  " + foodies.get(i).getAmount()
                             + "  " + foodies.get(i).getUnit();
                     ings.add(ingredient);
                 }
@@ -153,7 +154,7 @@ public class DetailActivity extends AppCompatActivity {
                 for (int i = 0; i < foodHowies.size(); i++) {
                     String warn = "";
                     if (!foodHowies.get(i).getWarn().equals("")) {
-                        warn = " هشدار : " + foodHowies.get(i).getWarn();
+                        warn = " هشدار : " + foodHowies.get(i).getWarn()+"\n";
                     }
                     foodHow = foodHowies.get(i).getTodo()
                             + " \n " + "\t" + warn;
@@ -535,6 +536,9 @@ public class DetailActivity extends AppCompatActivity {
                                     }
                                 });
                     }
+                } else {
+                    SignInDialog dialog = new SignInDialog();
+                    dialog.show(getSupportFragmentManager(),null);
                 }
 
 

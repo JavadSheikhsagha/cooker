@@ -49,4 +49,8 @@ public class MainViewModel {
         return repository.getDeserts();
     }
 
+    public Single<List<ImageModel>> getInstagramLink(){
+        return repository.getInstagramLink();
+    }
+
 }

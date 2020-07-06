@@ -6,12 +6,19 @@
 
 
     <RelativeLayout
-        android:gravity="center"
         android:layout_width="270dp"
         android:layout_height="200dp"
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/colorPrimary"
+            android:id="@+id/rel_signInDialog_actionbar"
+            />
+
         <TextView
+            android:layout_below="@+id/rel_signInDialog_actionbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="لطفا ابتدا وارد شوید"

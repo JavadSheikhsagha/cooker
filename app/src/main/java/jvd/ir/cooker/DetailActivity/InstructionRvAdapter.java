@@ -40,7 +40,7 @@ public class InstructionRvAdapter extends RecyclerView.Adapter<InstructionRvAdap
         holder.txtNumber.setText(position+1+"");
         holder.txtDesc.setText(howTo.get(position).getTodo());
         if (!howTo.get(position).getWarn().equals("")){
-            holder.txtWarning.setText("هشدار: "+ howTo.get(position).getWarn());
+            holder.txtWarning.setText("نکته : "+ howTo.get(position).getWarn());
             holder.txtWarning.setVisibility(View.VISIBLE);
             holder.imgWarn.setVisibility(View.VISIBLE);
         }

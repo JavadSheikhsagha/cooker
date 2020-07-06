@@ -41,6 +41,10 @@ public class MainApiService {
         return apiService.getDeserts();
     }
 
+    public Single<List<ImageModel>> getInstagramLink(){
+        return apiService.getImages("-1");
+    }
+
 
 
 }

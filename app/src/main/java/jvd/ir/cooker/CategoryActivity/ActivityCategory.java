@@ -51,15 +51,18 @@ public class ActivityCategory extends AppCompatActivity {
 
         ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment("ته چین");
+        adapter.addFragment("کیک");
         adapter.addFragment("مرغ");
         adapter.addFragment("پیتزا");
-        adapter.addFragment("کباب");
+        adapter.addFragment("سرخ کردنی");
         adapter.addFragment("خورشت");
-        adapter.addFragment("آب پز");
+        adapter.addFragment("ماکارونی");
         adapter.addFragment("گیاه خواری");
         adapter.addFragment("نوشیدنی");
         adapter.addFragment("دسر");
+        adapter.addFragment("سوپ");
+        adapter.addFragment("کباب");
+        adapter.addFragment("آش");
 
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(position-1);
