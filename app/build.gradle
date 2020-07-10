@@ -16,8 +16,8 @@ android {
         applicationId "jvd.ir.cooker"
         minSdkVersion 17
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.02"
+        versionCode 3
+        versionName "1.04"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
