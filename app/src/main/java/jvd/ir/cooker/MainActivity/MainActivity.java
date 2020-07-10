@@ -548,8 +548,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_question).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                // TODO: 6/28/2020 ASK QUESTIONS
-                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                Uri uri = Uri.parse("https://cards.bio/@javad_sheikhsagha/70");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 return false;
             }
         });

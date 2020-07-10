@@ -238,6 +238,7 @@ public class ActivityComments extends AppCompatActivity {
                         @Override
                         public void onClick() {
                             startActivity(new Intent(ActivityComments.this,LoginActivity.class));
+                            finish();
                         }
                     });
                     dialog.show(getSupportFragmentManager(),null);

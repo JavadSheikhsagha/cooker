@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import jvd.ir.cooker.Comments.ActivityComments;
 import jvd.ir.cooker.Comments.SignInDialog;
+import jvd.ir.cooker.LoginActivity.LoginActivity;
 import jvd.ir.cooker.MainActivity.MainRvAdapter;
 import jvd.ir.cooker.MainActivity.MainSliderAdapter;
 import jvd.ir.cooker.Model.FoodHowTo;
@@ -315,8 +317,16 @@ public class DetailActivity extends AppCompatActivity {
                         ImageModel imageModel = new ImageModel();
                         imageModel.setImage(FOOD_IMG);
                         imgs.add(imageModel);
-                        slider.setVisibility(View.VISIBLE);
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                slider.setVisibility(View.VISIBLE);
+                            }
+                        },700);
+
                         YoYo.with(Techniques.FadeIn)
+                                .delay(700)
                                 .duration(700)
                                 .playOn(slider);
                         MainSliderAdapter adapter1 = new MainSliderAdapter(imgs);
@@ -566,6 +576,14 @@ public class DetailActivity extends AppCompatActivity {
                     }
                 } else {
                     SignInDialog dialog = new SignInDialog();
+                    dialog.setOnLoginClick(new SignInDialog.setOnLoginClick() {
+                        @Override
+                        public void onClick() {
+                            Intent intent2=new Intent(DetailActivity.this, LoginActivity.class);
+                            startActivity(intent2);
+                            finish();
+                        }
+                    });
                     dialog.show(getSupportFragmentManager(),null);
                 }
 
