@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:src="@drawable/ic_perm_identity_black_24dp"
-            android:scaleType="centerCrop"
             android:id="@+id/img_allCatsItem_image"
             />
 

@@ -38,6 +38,7 @@ public class RvAllCatAdapter extends RecyclerView.Adapter<RvAllCatAdapter.AllCat
         holder.txtTitle.setText(model.getCategory());
         if (!model.getImage().isEmpty()){
             Picasso.get().load(model.getImage()).into(holder.image);
+            holder.image.setScaleType(ImageView.ScaleType.FIT_XY);
         }
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
