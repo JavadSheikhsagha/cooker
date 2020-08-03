@@ -429,6 +429,31 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:id="@+id/card_detail_fourth"
+                    android:layout_below="@+id/card_detail_third"
+                    >
+
+                    <Button
+                        android:textSize="15sp"
+                        android:textColor="@color/colorWhite1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="منبع مطلب"
+                        android:id="@+id/btn_detail_link"
+                        android:background="@drawable/shape_detail_button"
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
                 <LinearLayout
                     android:layout_marginBottom="70dp"
                     android:background="@color/colorPrimaryDark"
@@ -437,7 +462,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="12dp"
                     android:paddingTop="8dp"
-                    android:layout_below="@+id/card_detail_third"
+                    android:layout_below="@+id/card_detail_fourth"
                     android:orientation="vertical"
                     >
                     <TextView
@@ -476,7 +501,6 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 >
 
                 <Button

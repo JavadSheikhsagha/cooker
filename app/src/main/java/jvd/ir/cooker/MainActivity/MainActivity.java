@@ -532,7 +532,10 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_score).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                // TODO: 6/28/2020 BAZAAR LINK TO APP
+                String LINK = "https://cafebazaar.ir/app/jvd.ir.cooker";
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK));
+                startActivity(browserIntent);
                 return false;
             }
         });
@@ -540,7 +543,10 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.nav_send).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                // TODO: 6/28/2020 SHARE APP
+                String LINK = "https://cafebazaar.ir/app/jvd.ir.cooker";
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK));
+                startActivity(browserIntent);
                 return false;
             }
         });

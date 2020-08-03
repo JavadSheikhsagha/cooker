@@ -28,6 +28,16 @@ public class FoodModel {
     private String mDifficulty;
     @SerializedName("confirm")
     private String mConfirm;
+    @SerializedName("link")
+    private String mLink;
+
+    public String getmLink() {
+        return mLink;
+    }
+
+    public void setmLink(String mLink) {
+        this.mLink = mLink;
+    }
 
     public String getmConfirm() {
         return mConfirm;

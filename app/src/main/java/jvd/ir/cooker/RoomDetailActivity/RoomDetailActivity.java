@@ -273,16 +273,11 @@ public class RoomDetailActivity extends AppCompatActivity {
                     }
                 });
                 thread4.start();
-                onDeleteClick.onClick(FOOD_NAME);
                 startActivity(new Intent(RoomDetailActivity.this, BookmarkFoodsActivity.class));
                 finish();
             }
         });
 
-    }
-
-    public void setOnDeleteClick(setOnDeleteClick onDeleteClick) {
-        this.onDeleteClick = onDeleteClick;
     }
 
     public interface setOnDeleteClick {

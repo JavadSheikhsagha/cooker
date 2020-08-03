@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -55,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
 
     ImageView imgBack, imgLike, imgDifficulty, imgTime, imgPeople, imgHelpDifficulty, imgHelpTime, imgHelpPeople, imgBookmark, imgHelpBookmark;
 
-    Button btnComments, btnShareFood;
+    Button btnComments, btnShareFood, btnLink;
 
     NestedScrollView scrollView;
 
@@ -69,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
 
     ss.com.bannerslider.Slider slider;
 
-    String FOOD_ID, FOOD_IMG, FOOD_NAME, USER_NAME, CHEF_ID;
+    String FOOD_ID, FOOD_IMG, FOOD_NAME, USER_NAME, CHEF_ID, LINK = "";
 
     int positioning, image, saved = 0;
 
@@ -162,7 +163,7 @@ public class DetailActivity extends AppCompatActivity {
                 for (int i = 0; i < foodHowies.size(); i++) {
                     String warn = "";
                     if (!foodHowies.get(i).getWarn().equals("")) {
-                        warn = " هشدار : " + foodHowies.get(i).getWarn()+"\n";
+                        warn = " هشدار : " + foodHowies.get(i).getWarn() + "\n";
                     }
                     foodHow = foodHowies.get(i).getTodo()
                             + " \n " + "\t" + warn;
@@ -172,7 +173,8 @@ public class DetailActivity extends AppCompatActivity {
 
                 String delim = "\n";
 
-                String App = "کوکر";
+                String App = "\nغذادون \n شما میتونید این برنامه رو از لینک زیر دانلود کنید : \n ";
+                String newLink = "https://cafebazaar.ir/app/jvd.ir.cooker";
                 // TODO: 5/9/2020 APP NAME AND ADDRESS
 
 
@@ -187,7 +189,7 @@ public class DetailActivity extends AppCompatActivity {
                         TextUtils.join(delim, ings) +
                         "\n\n" +
                         "\n" + " دستور پخت : " + "\n" +
-                        TextUtils.join(delim, foodHows);
+                        TextUtils.join(delim, foodHows) + App + newLink;
 
 
                 Log.i("LOG11", "onClick: " + endShare);
@@ -306,8 +308,8 @@ public class DetailActivity extends AppCompatActivity {
                     public void onSuccess(List<ImageModel> imageModels) {
                         MainSliderAdapter adapter = new MainSliderAdapter(imageModels);
 
-                            slider.setAdapter(adapter);
-                            slider.setSelectedSlide(imageModels.size());
+                        slider.setAdapter(adapter);
+                        slider.setSelectedSlide(imageModels.size());
 
                     }
 
@@ -323,7 +325,7 @@ public class DetailActivity extends AppCompatActivity {
                             public void run() {
                                 slider.setVisibility(View.VISIBLE);
                             }
-                        },700);
+                        }, 700);
 
                         YoYo.with(Techniques.FadeIn)
                                 .delay(700)
@@ -357,6 +359,12 @@ public class DetailActivity extends AppCompatActivity {
                         txtTime.setText(foodModels.get(0).getmTime() + " دقیقه ");
                         FOOD_NAME = foodModels.get(0).getTitle();
                         CHEF_ID = foodModels.get(0).getCheefId();
+                        LINK = foodModels.get(0).getmLink();
+
+                        if (LINK.equals("")) {
+                            btnLink.setClickable(false);
+                            btnLink.setText("کلیه حقوق این مطلب متعلق به برنامه غذادون می باشد.");
+                        }
 
                         int timeSpent = Integer.parseInt(foodModels.get(0).getmTime());
 
@@ -477,6 +485,7 @@ public class DetailActivity extends AppCompatActivity {
 
         btnComments = findViewById(R.id.btn_detail_comments);
         btnShareFood = findViewById(R.id.btn_detail_startCooking);
+        btnLink = findViewById(R.id.btn_detail_link);
 
         rvIngredients = findViewById(R.id.rv_detail_ing);
         rvHowTo = findViewById(R.id.rv_detail_howTo);
@@ -501,6 +510,14 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        btnLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLink();
             }
         });
 
@@ -540,7 +557,7 @@ public class DetailActivity extends AppCompatActivity {
         imgLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!USER_NAME.equals("")){
+                if (!USER_NAME.equals("")) {
                     if (LIKED.equals("0")) {
                         viewModel.likeFood(FOOD_ID, USER_NAME)
                                 .subscribeOn(Schedulers.newThread())
@@ -579,12 +596,12 @@ public class DetailActivity extends AppCompatActivity {
                     dialog.setOnLoginClick(new SignInDialog.setOnLoginClick() {
                         @Override
                         public void onClick() {
-                            Intent intent2=new Intent(DetailActivity.this, LoginActivity.class);
+                            Intent intent2 = new Intent(DetailActivity.this, LoginActivity.class);
                             startActivity(intent2);
                             finish();
                         }
                     });
-                    dialog.show(getSupportFragmentManager(),null);
+                    dialog.show(getSupportFragmentManager(), null);
                 }
 
 
@@ -615,6 +632,15 @@ public class DetailActivity extends AppCompatActivity {
                 dialog.show(getSupportFragmentManager(), null);
             }
         });
+
+    }
+
+    private void openLink() {
+        if (!LINK.startsWith("http://") && !LINK.startsWith("https://"))
+            LINK = "http://" + LINK;
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK));
+        startActivity(browserIntent);
 
     }
 
