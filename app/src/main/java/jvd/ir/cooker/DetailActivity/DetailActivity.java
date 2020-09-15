@@ -750,6 +750,7 @@ public class DetailActivity extends AppCompatActivity {
                             });
 
                         }
+
                         if (scrollY < 30 && scrollY < oldScrollY && positioning == 1) {
                             runOnUiThread(new Runnable() {
                                 @Override
